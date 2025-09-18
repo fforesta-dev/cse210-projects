@@ -6,7 +6,7 @@ namespace ScriptureMemorizer
 {
     public class Scripture
     {
-        private static readonly Random Rng = new Random();
+        private static readonly Random _rng = new Random();
 
         private readonly Reference _reference;
         private readonly List<Word> _words;
@@ -37,7 +37,7 @@ namespace ScriptureMemorizer
             {
                 if (candidates.Count == 0) break;
 
-                int idx = Rng.Next(candidates.Count);
+                int idx = _rng.Next(candidates.Count);
                 candidates[idx].Hide();
 
                 if (onlyFromVisible)
@@ -51,7 +51,7 @@ namespace ScriptureMemorizer
         {
             var hidden = _words.Where(w => w.IsHidden && !IsTriviallyEmpty(w)).ToList();
             if (hidden.Count == 0) return;
-            int idx = Rng.Next(hidden.Count);
+            int idx = _rng.Next(hidden.Count);
             hidden[idx].Reveal();
         }
 
