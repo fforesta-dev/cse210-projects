@@ -16,7 +16,7 @@ namespace ScriptureMemorizer
 {
     internal class Program
     {
-        private static readonly Random Rng = new Random();
+        private static readonly Random _rng = new Random();
 
         static void Main()
         {
@@ -77,7 +77,7 @@ namespace ScriptureMemorizer
 
         private static Scripture PickRandomScripture(List<Scripture> library)
         {
-            int idx = Rng.Next(library.Count);
+            int idx = _rng.Next(library.Count);
             return library[idx];
         }
     }
